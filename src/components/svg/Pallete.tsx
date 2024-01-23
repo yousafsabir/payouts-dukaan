@@ -35,7 +35,7 @@ export const Pallete = memo((props: { fill?: string; width?: number; height?: nu
 			</g>
 			<defs>
 				<clipPath id='clip0_24_1210'>
-					<rect width={20} height={20} fill={fill} />
+					<rect width={width} height={height} fill={fill} />
 				</clipPath>
 			</defs>
 		</svg>

@@ -31,7 +31,7 @@ export const DiscountGear = memo((props: { fill?: string; width?: number; height
 			</g>
 			<defs>
 				<clipPath id='clip0_24_1200'>
-					<rect width={20} height={20} fill={fill} />
+					<rect width={width} height={height} fill={fill} />
 				</clipPath>
 			</defs>
 		</svg>
