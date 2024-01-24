@@ -1,5 +1,5 @@
-import Payments from '@/screens/dashboard/pages/payments'
+import Home from '@/screens/home'
 
-export default function Home() {
-	return <Payments />
+export default function HomePage() {
+	return <Home />
 }
