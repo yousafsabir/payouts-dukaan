@@ -18,3 +18,5 @@ export const Cursor = memo((props: { fill?: string; width?: number; height?: num
 		</svg>
 	)
 })
+
+Cursor.displayName = 'Cursor Icon'

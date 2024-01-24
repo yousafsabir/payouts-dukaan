@@ -18,3 +18,5 @@ export const Money = memo((props: { fill?: string; width?: number; height?: numb
 		</svg>
 	)
 })
+
+Money.displayName = 'Money Icon'

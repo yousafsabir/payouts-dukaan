@@ -37,3 +37,5 @@ export const DiscountGear = memo((props: { fill?: string; width?: number; height
 		</svg>
 	)
 })
+
+DiscountGear.displayName = 'DiscountGear Icon'

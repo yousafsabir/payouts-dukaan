@@ -38,3 +38,5 @@ export const Truck = memo((props: { fill?: string; width?: number; height?: numb
 		</svg>
 	)
 })
+
+Truck.displayName = 'Truck Icon'

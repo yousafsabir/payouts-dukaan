@@ -20,3 +20,5 @@ export const ElectricSpark = memo((props: { fill?: string; width?: number; heigh
 		</svg>
 	)
 })
+
+ElectricSpark.displayName = 'ElectricSpark Icon'

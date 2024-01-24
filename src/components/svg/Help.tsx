@@ -37,3 +37,5 @@ export const Help = memo((props: { fill?: string; width?: number; height?: numbe
 		</svg>
 	)
 })
+
+Help.displayName = 'Help Icon'

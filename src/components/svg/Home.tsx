@@ -18,3 +18,5 @@ export const Home = memo((props: { fill?: string; width?: number; height?: numbe
 		</svg>
 	)
 })
+
+Home.displayName = 'Home Icon'

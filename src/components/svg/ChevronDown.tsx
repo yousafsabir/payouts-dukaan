@@ -16,3 +16,5 @@ export const ChevronDown = memo((props: { fill?: string; width?: number; height?
 		</svg>
 	)
 })
+
+ChevronDown.displayName = 'ChevronDown Icon'

@@ -18,3 +18,5 @@ export const Grid = memo((props: { fill?: string; width?: number; height?: numbe
 		</svg>
 	)
 })
+
+Grid.displayName = 'Grid Icon'

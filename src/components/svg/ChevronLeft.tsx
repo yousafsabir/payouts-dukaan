@@ -18,3 +18,5 @@ export const ChevronLeft = memo((props: { fill?: string; width?: number; height?
 		</svg>
 	)
 })
+
+ChevronLeft.displayName = 'ChevronLeft Icon'

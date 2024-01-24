@@ -38,3 +38,5 @@ export const Bars = memo((props: { fill?: string; width?: number; height?: numbe
 		</svg>
 	)
 })
+
+Bars.displayName = 'Bars Icon'

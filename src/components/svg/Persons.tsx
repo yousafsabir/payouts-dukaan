@@ -38,3 +38,5 @@ export const Persons = memo((props: { fill?: string; width?: number; height?: nu
 		</svg>
 	)
 })
+
+Persons.displayName = 'Persons Icon'

@@ -16,3 +16,5 @@ export const Download = memo((props: { fill?: string; width?: number; height?: n
 		</svg>
 	)
 })
+
+Download.displayName = 'Download Icon'

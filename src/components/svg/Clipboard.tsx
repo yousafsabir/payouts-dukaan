@@ -36,3 +36,5 @@ export const Clipboard = memo((props: { fill?: string; width?: number; height?: 
 		</svg>
 	)
 })
+
+Clipboard.displayName = 'Clipboard Icon'

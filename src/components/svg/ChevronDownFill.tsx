@@ -24,3 +24,5 @@ export const ChevronDownFill = memo((props: { fill?: string; width?: number; hei
 		</svg>
 	)
 })
+
+ChevronDownFill.displayName = 'ChevronDownFill Icon'

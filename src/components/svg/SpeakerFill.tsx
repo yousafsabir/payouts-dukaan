@@ -16,3 +16,5 @@ export const SpeakerFill = memo((props: { fill?: string; width?: number; height?
 		</svg>
 	)
 })
+
+SpeakerFill.displayName = 'SpeakerFill Icon'

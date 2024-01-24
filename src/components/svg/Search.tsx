@@ -23,3 +23,5 @@ export const Search = memo((props: { fill?: string; width?: number; height?: num
 		</svg>
 	)
 })
+
+Search.displayName = 'Search Icon'

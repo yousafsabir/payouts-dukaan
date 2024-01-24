@@ -41,3 +41,5 @@ export const Pallete = memo((props: { fill?: string; width?: number; height?: nu
 		</svg>
 	)
 })
+
+Pallete.displayName = 'Pallete'

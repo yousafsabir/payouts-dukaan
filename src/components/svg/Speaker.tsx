@@ -32,3 +32,5 @@ export const Speaker = memo((props: { fill?: string; width?: number; height?: nu
 		</svg>
 	)
 })
+
+Speaker.displayName = 'Speaker Icon'

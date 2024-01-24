@@ -38,3 +38,5 @@ export const TwoOppositeArrows = memo(
 		)
 	},
 )
+
+TwoOppositeArrows.displayName = 'TwoOppositeArrows Icon'

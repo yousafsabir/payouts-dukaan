@@ -37,3 +37,5 @@ export const Info = memo((props: { fill?: string; width?: number; height?: numbe
 		</svg>
 	)
 })
+
+Info.displayName = 'Info Icon'
