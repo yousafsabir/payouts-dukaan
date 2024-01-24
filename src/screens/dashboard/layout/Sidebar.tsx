@@ -1,24 +1,111 @@
 'use client'
+
 import { useState } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 import { cn } from '@/lib/utils'
 import { clientData } from '@/lib/db'
-import { ChevronLeft, ChevronDown } from '@/components/svg'
+import {
+	ChevronLeft,
+	ChevronDown,
+	Home,
+	Clipboard,
+	Grid,
+	Truck,
+	Speaker,
+	Bars,
+	Money,
+	Cursor,
+	DiscountGear,
+	Persons,
+	Pallete,
+	ElectricSpark,
+	Wallet,
+} from '@/components/svg'
+
+const sidebarLinks: Array<{
+	name: string
+	icon: JSX.Element
+	link: string
+}> = [
+	{
+		name: 'Home',
+		icon: <Home />,
+		link: '/dashboard',
+	},
+	{
+		name: 'Orders',
+		icon: <Clipboard />,
+		link: '/dashboard/orders',
+	},
+	{
+		name: 'Products',
+		icon: <Grid />,
+		link: '/dashboard/products',
+	},
+	{
+		name: 'Delivery',
+		icon: <Truck />,
+		link: '/dashboard/delivery',
+	},
+	{
+		name: 'Marketing',
+		icon: <Speaker />,
+		link: '/dashboard/marketing',
+	},
+	{
+		name: 'Analytics',
+		icon: <Bars />,
+		link: '/dashboard/analytics',
+	},
+	{
+		name: 'Payments',
+		icon: <Money />,
+		link: '/dashboard/payments',
+	},
+	{
+		name: 'Tools',
+		icon: <Cursor />,
+		link: '/dashboard/tools',
+	},
+	{
+		name: 'Discounts',
+		icon: <DiscountGear />,
+		link: '/dashboard/discounts',
+	},
+	{
+		name: 'Audience',
+		icon: <Persons />,
+		link: '/dashboard/audience',
+	},
+	{
+		name: 'Appearance',
+		icon: <Pallete />,
+		link: '/dashboard/appearance',
+	},
+	{
+		name: 'Plugins',
+		icon: <ElectricSpark />,
+		link: '/dashboard/plugins',
+	},
+]
 
 export default function DashboardSidebar() {
 	const [sidebarOpen, setSidebarOpen] = useState(false)
+	const currentPath = usePathname()
+	console.log(currentPath)
 	return (
 		<>
 			<aside
 				className={cn(
-					'transition-sidebar bg-app-blue-800 text-app-white absolute bottom-0 top-0 z-20 min-h-full w-[224px] px-[10px] py-4 duration-300 lg:static lg:max-w-[224px] lg:flex-1',
+					'transition-sidebar bg-app-blue-800 text-app-white absolute bottom-0 top-0 z-20 min-h-full w-[224px] px-2 py-4 duration-300 lg:static lg:max-w-[224px] lg:flex-1',
 					{
 						'-left-[224px]': !sidebarOpen,
 						'left-0': sidebarOpen,
 					},
 				)}>
-				<nav className='w-full'>
+				<nav className='flex h-full w-full flex-col'>
 					{/* Open Sidebar */}
 					<div
 						className={cn(
@@ -55,6 +142,33 @@ export default function DashboardSidebar() {
 							<ChevronDown />
 						</div>
 					</header>
+
+					{/* Links to Pages */}
+					<ul className='mb-4 flex-1'>
+						{sidebarLinks.map((link) => (
+							<li key={link.link}>
+								<Link
+									className={cn('flex items-center gap-3 rounded px-4 py-2', {
+										'bg-app-blue-700': currentPath === link.link,
+									})}
+									href={link.link}
+									onClick={() => setSidebarOpen(false)}>
+									{link.icon} <span className=''>{link.name}</span>
+								</Link>
+							</li>
+						))}
+					</ul>
+
+					{/* Available Credits */}
+					<div className='bg-app-blue-700 mt-auto flex w-[192px] items-center gap-3 self-center rounded px-3 py-[6px]'>
+						<div className='bg-app-blue-600 flex h-9 w-9 items-center justify-center rounded'>
+							<Wallet />
+						</div>
+						<div>
+							<p className='text-[13px] font-light leading-4'>Available credits</p>
+							<p className='text-base leading-6 '>222.10</p>
+						</div>
+					</div>
 				</nav>
 			</aside>
 			{/* Overlay */}

@@ -39,6 +39,7 @@ const config = {
 				'app-white': '#fff',
 				'app-blue-800': '#1E2640',
 				'app-blue-700': '#353C53',
+				'app-blue-600': '#4a5064',
 				'app-blue-500': '#146EB4',
 				'app-gray-800': '#1A181E',
 				'app-gray-700': '#4D4D4D',
