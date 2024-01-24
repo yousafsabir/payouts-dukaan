@@ -7,9 +7,19 @@ export default function Home() {
 			<p className='mb-1'>
 				Pixel perfect implementation of the payment page in the dashboard of mydukaan.io
 			</p>
-			<Link className='text-app-blue-500 underline' href={'/dashboard/payments'}>
-				Check the page
-			</Link>
+			<div className='flex justify-center gap-3'>
+				<Link className='text-app-blue-500 underline' href={'/dashboard/payments'}>
+					Page
+				</Link>
+				<Link
+					className='text-app-blue-500 underline'
+					href={
+						'https://www.figma.com/file/a4cEZxmPCutR42s1lipnZC/Payouts-V2---2023?node-id=0%3A1&mode=dev'
+					}
+					target='_blank'>
+					Figma
+				</Link>
+			</div>
 		</main>
 	)
 }
