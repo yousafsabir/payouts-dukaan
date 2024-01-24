@@ -1,5 +1,5 @@
 export const clientData = {
-	name: 'Nishyan',
-	logo: '/client-logo.png',
+	name: 'Yousaf',
+	logo: '/client-logo.webp',
 	storeLink: 'https://yousaf.dev',
 }
