@@ -94,7 +94,6 @@ const sidebarLinks: Array<{
 export default function DashboardSidebar() {
 	const [sidebarOpen, setSidebarOpen] = useState(false)
 	const currentPath = usePathname()
-	console.log(currentPath)
 	return (
 		<>
 			<aside
@@ -109,7 +108,7 @@ export default function DashboardSidebar() {
 					{/* Open Sidebar */}
 					<div
 						className={cn(
-							'bg-app-blue-800 absolute -right-5 top-2 flex h-6 w-5 cursor-pointer items-center justify-center rounded-l-[-5px] rounded-r-md lg:hidden ',
+							'bg-app-blue-800 absolute -right-5 top-5 flex h-6 w-5 cursor-pointer items-center justify-center rounded-l-[-5px] rounded-r-md lg:hidden ',
 						)}
 						onClick={() => setSidebarOpen((prev) => !prev)}>
 						<div
