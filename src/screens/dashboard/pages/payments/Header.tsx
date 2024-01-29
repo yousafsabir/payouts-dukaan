@@ -23,6 +23,10 @@ export default function Header() {
 				<DurationSelect />
 			</div>
 			{/* Bottom Cards */}
+			<div className='grid grid-cols-1 gap-5 sm:grid-cols-2'>
+				<InfoCard title='Online orders' content='231' />
+				<InfoCard title='Amount received' content='₹23,92,312.19' />
+			</div>
 		</header>
 	)
 }
@@ -55,5 +59,16 @@ const DurationSelect = () => {
 				</SelectGroup>
 			</SelectContent>
 		</Select>
+	)
+}
+
+const InfoCard = (props: { title: string; content: string }) => {
+	return (
+		<article className='shadow-info-card rounded-lg bg-app-white p-5'>
+			<p className='mb-4 text-base text-app-blue-700'>{props.title}</p>
+			<h4 className='text-[32px] font-medium leading-[38px] text-app-gray-800'>
+				{props.content}
+			</h4>
+		</article>
 	)
 }

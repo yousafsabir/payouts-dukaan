@@ -49,6 +49,9 @@ const config = {
 				'app-gray-50': '#F2F2F2',
 				'app-gray-30': '#FAFAFA',
 			},
+			boxShadow: {
+				'info-card': '0px 2px 6px 0px rgba(26, 24, 30, 0.04)',
+			},
 		},
 	},
 	plugins: [require('tailwindcss-animate')],
