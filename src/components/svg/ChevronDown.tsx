@@ -1,12 +1,13 @@
 import { memo } from 'react'
 
-export const ChevronDown = memo((props: { fill?: string; width?: number; height?: number }) => {
-	const { fill = 'white', width = 20, height = 20 } = props
+import { cn } from '@/lib/utils'
+
+export const ChevronDown = memo((props: { fill?: string; className?: string }) => {
+	const { fill = 'white' } = props
 	return (
 		<svg
+			className={cn('h-5 w-5', props.className)}
 			xmlns='http://www.w3.org/2000/svg'
-			width={width}
-			height={height}
 			viewBox='0 0 20 20'
 			fill='none'>
 			<path

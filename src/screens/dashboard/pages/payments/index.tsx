@@ -1,3 +1,11 @@
+import Header from './Header'
+import Transactions from './Transactions'
+
 export default function Payments() {
-	return <main>Payments Page</main>
+	return (
+		<>
+			<Header />
+			<Transactions />
+		</>
+	)
 }

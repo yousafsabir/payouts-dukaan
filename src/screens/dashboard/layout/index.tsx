@@ -7,7 +7,7 @@ export default function RootDashboardLayout({ children }: { children?: React.Rea
 			<DashboardSidebar />
 			<main className='flex-1'>
 				<DashboardNavbar />
-				{children}
+				<main className='bg-app-gray-30 h-full p-8'>{children}</main>
 			</main>
 		</main>
 	)

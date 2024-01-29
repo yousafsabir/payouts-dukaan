@@ -47,6 +47,7 @@ const config = {
 				'app-gray-150': '#D9D9D9',
 				'app-gray-100': '#E6E6E6',
 				'app-gray-50': '#F2F2F2',
+				'app-gray-30': '#FAFAFA',
 			},
 		},
 	},
