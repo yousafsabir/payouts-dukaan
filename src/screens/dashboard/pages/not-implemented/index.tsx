@@ -7,7 +7,9 @@ export default function NotImplemented() {
 				This page isn&apos;t included in the implementation.
 				<br />
 				Checkout the{' '}
-				<Link className='text-app-blue-500 underline' href={'/dashboard/payments'}>
+				<Link
+					className='text-app-blue-500 underline'
+					href={'/dashboard/payments?duration=last-month'}>
 					payments
 				</Link>{' '}
 				page

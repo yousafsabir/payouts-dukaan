@@ -1,6 +1,14 @@
 import Header from './Header'
 import Transactions from './Transactions'
 
+export const paymentsDurationSelect = {
+	'today': 'Today',
+	'last-week': 'Last Week',
+	'last-month': 'Last Month',
+	'last-year': 'Last Year',
+	'all-time': 'All Time',
+} as const
+
 export default function Payments() {
 	return (
 		<>

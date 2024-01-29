@@ -1,3 +1,5 @@
+'use client'
+
 import {
 	Select,
 	SelectContent,
@@ -7,8 +9,10 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from '@/components/ui/select'
-import { Button } from '@/components/ui/button'
 import { ChevronDown } from '@/components/svg'
+import { useRouter, usePathname, useSearchParams } from 'next/navigation'
+import Link from 'next/link'
+import { paymentsDurationSelect } from '.'
 
 export default function Header() {
 	return (
@@ -24,8 +28,15 @@ export default function Header() {
 }
 
 const DurationSelect = () => {
+	const router = useRouter()
+	const path = usePathname()
+	const params = useSearchParams()
 	return (
-		<Select defaultValue={'last-month'}>
+		<Select
+			defaultValue={
+				params.get('duration') || ('last-month' as keyof typeof paymentsDurationSelect)
+			}
+			onValueChange={(v) => router.push(path + `?duration=${v}`)}>
 			<SelectTrigger className='flex h-auto max-w-[137px] items-center gap-2 border-app-gray-150 px-[14px] py-[7px] focus:ring-0'>
 				<SelectValue
 					placeholder='Select Duration'
@@ -36,11 +47,11 @@ const DurationSelect = () => {
 			<SelectContent>
 				<SelectGroup>
 					<SelectLabel>Duration</SelectLabel>
-					<SelectItem value='today'>Today</SelectItem>
-					<SelectItem value='last-week'>Last Week</SelectItem>
-					<SelectItem value='last-month'>Last Month</SelectItem>
-					<SelectItem value='last-year'>Last Year</SelectItem>
-					<SelectItem value='all-time'>All Time</SelectItem>
+					{Object.entries(paymentsDurationSelect).map(([key, val]) => (
+						<SelectItem value={key} key={key}>
+							{val}
+						</SelectItem>
+					))}
 				</SelectGroup>
 			</SelectContent>
 		</Select>
