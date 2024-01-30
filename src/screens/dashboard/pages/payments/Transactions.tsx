@@ -1,5 +1,6 @@
 'use client'
 
+import { Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 
 import { Input } from '@/components'
@@ -11,7 +12,7 @@ import {
 	type KeyofPaymentsDurationSelect,
 } from '.'
 
-export default function Transactions() {
+function TransactionsSection() {
 	const params = useSearchParams()
 
 	return (
@@ -47,6 +48,14 @@ export default function Transactions() {
 				</header>
 			</main>
 		</main>
+	)
+}
+
+export default function Transactions() {
+	return (
+		<Suspense>
+			<TransactionsSection />
+		</Suspense>
 	)
 }
 

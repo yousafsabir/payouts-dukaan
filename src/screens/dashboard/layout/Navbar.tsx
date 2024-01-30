@@ -3,7 +3,7 @@ import { usePathname } from 'next/navigation'
 
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
 import { Button } from '@/components/ui/button'
-import { Info, Search, SpeakerFill, ChevronDownFill } from '@/components/svg'
+import { Info, SpeakerFill, ChevronDownFill } from '@/components/svg'
 import { Input } from '@/components'
 
 export default function DashboardNavbar() {

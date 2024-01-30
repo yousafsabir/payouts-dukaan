@@ -1,5 +1,8 @@
 'use client'
 
+import { Suspense } from 'react'
+import { useRouter, usePathname, useSearchParams } from 'next/navigation'
+
 import {
 	Select,
 	SelectContent,
@@ -10,8 +13,6 @@ import {
 	SelectValue,
 } from '@/components/ui/select'
 import { ChevronDown } from '@/components/svg'
-import { useRouter, usePathname, useSearchParams } from 'next/navigation'
-import Link from 'next/link'
 import { paymentsDurationSelect, defaultKey_paymentsDurationSelect } from '.'
 
 export default function Header() {
@@ -20,7 +21,9 @@ export default function Header() {
 			{/* Top */}
 			<div className='mb-6 flex items-center justify-between'>
 				<h3 className='text-xl font-medium text-app-gray-800'>Overview</h3>
-				<DurationSelect />
+				<Suspense>
+					<DurationSelect />
+				</Suspense>
 			</div>
 			{/* Bottom Cards */}
 			<div className='mb-8 grid grid-cols-1 gap-5 sm:grid-cols-2'>
