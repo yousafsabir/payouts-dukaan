@@ -98,7 +98,7 @@ export default function DashboardSidebar() {
 		<>
 			<aside
 				className={cn(
-					'transition-sidebar bg-app-blue-800 text-app-white absolute bottom-0 top-0 z-20 min-h-full w-[224px] px-2 py-4 duration-300 lg:static lg:max-w-[224px] lg:flex-1',
+					'fixed bottom-0 top-0 z-20 min-h-full w-[224px] bg-app-blue-800 px-2 py-4 text-app-white transition-sidebar duration-300 lg:left-0 lg:max-w-[224px] lg:flex-1',
 					{
 						'-left-[224px]': !sidebarOpen,
 						'left-0': sidebarOpen,
@@ -108,7 +108,7 @@ export default function DashboardSidebar() {
 					{/* Open Sidebar */}
 					<div
 						className={cn(
-							'bg-app-blue-800 absolute -right-5 top-5 flex h-6 w-5 cursor-pointer items-center justify-center rounded-l-[-5px] rounded-r-md lg:hidden ',
+							'absolute -right-5 top-4 flex h-6 w-5 cursor-pointer items-center justify-center rounded-l-[-5px] rounded-r-md bg-app-blue-800 sm:top-5 lg:hidden ',
 						)}
 						onClick={() => setSidebarOpen((prev) => !prev)}>
 						<div
@@ -159,8 +159,8 @@ export default function DashboardSidebar() {
 					</ul>
 
 					{/* Available Credits */}
-					<div className='bg-app-blue-700 mt-auto flex w-[192px] items-center gap-3 self-center rounded px-3 py-[6px]'>
-						<div className='bg-app-blue-600 flex h-9 w-9 items-center justify-center rounded'>
+					<div className='mt-auto flex w-[192px] items-center gap-3 self-center rounded bg-app-blue-700 px-3 py-[6px]'>
+						<div className='flex h-9 w-9 items-center justify-center rounded bg-app-blue-600'>
 							<Wallet />
 						</div>
 						<div>
@@ -173,7 +173,7 @@ export default function DashboardSidebar() {
 			{/* Overlay */}
 			<div
 				className={cn(
-					'absolute bottom-0 top-0 z-10 w-[100vw] cursor-pointer bg-black/10 transition-opacity duration-300 lg:hidden',
+					'fixed bottom-0 top-0 z-10 w-[100vw] cursor-pointer bg-black/10 transition-opacity duration-300 lg:hidden',
 					{
 						'-left-full opacity-0': !sidebarOpen,
 						'left-0 opacity-100': sidebarOpen,
