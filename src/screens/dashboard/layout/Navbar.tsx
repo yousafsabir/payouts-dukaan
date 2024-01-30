@@ -4,6 +4,7 @@ import { usePathname } from 'next/navigation'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
 import { Button } from '@/components/ui/button'
 import { Info, Search, SpeakerFill, ChevronDownFill } from '@/components/svg'
+import { Input } from '@/components'
 
 export default function DashboardNavbar() {
 	const rawPath = usePathname()
@@ -18,17 +19,8 @@ export default function DashboardNavbar() {
 				</p>
 				<HowItWorks />
 			</div>
-
 			{/* Middle Search */}
-			<div className='flex min-w-max max-w-[400px] flex-1 items-center gap-[6px] rounded-md bg-app-gray-50 px-3 py-[6px] sm:px-4 sm:py-[9px]'>
-				<Search />
-				<input
-					type='text'
-					className='w-[100px] flex-1 bg-transparent outline-none placeholder:text-app-gray-500 sm:w-auto'
-					placeholder='Search features, tutorials, etc.'
-				/>
-			</div>
-
+			<Input inputProps={{ placeholder: 'Search features, tutorials, etc.' }} />
 			{/* Right Icons */}
 			<div className='flex gap-3'>
 				<SpeakerFill className='h-8 w-8 sm:h-10 sm:w-10 ' />

@@ -1,12 +1,13 @@
 import { memo } from 'react'
 
-export const Search = memo((props: { fill?: string; width?: number; height?: number }) => {
-	const { fill = '#808080', width = 16, height = 16 } = props
+import { cn } from '@/lib/utils'
+
+export const Search = memo((props: { fill?: string; className?: string }) => {
+	const { fill = '#808080' } = props
 	return (
 		<svg
 			xmlns='http://www.w3.org/2000/svg'
-			width={width}
-			height={height}
+			className={cn('h-4 w-4', props.className)}
 			viewBox='0 0 16 16'
 			fill='none'>
 			<g clipPath='url(#clip0_24_2526)'>
@@ -15,11 +16,6 @@ export const Search = memo((props: { fill?: string; width?: number; height?: num
 					fill={fill}
 				/>
 			</g>
-			<defs>
-				<clipPath id='clip0_24_2526'>
-					<rect width={width} height={height} fill={fill} />
-				</clipPath>
-			</defs>
 		</svg>
 	)
 })
