@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 	title: 'Payments - Dukaan',
 	description:
 		'A portfolio frontend project aimed to showcase my pixel-perfection skill. link to figma: https://t.co/0oUgtwer25',
+	themeColor: '#146EB4',
 }
 
 export default function RootLayout({
@@ -19,6 +20,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='en'>
+			<head></head>
 			<body className={inter.className}>{children}</body>
 		</html>
 	)
