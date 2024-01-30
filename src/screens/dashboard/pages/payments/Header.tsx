@@ -12,7 +12,7 @@ import {
 import { ChevronDown } from '@/components/svg'
 import { useRouter, usePathname, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
-import { paymentsDurationSelect } from '.'
+import { paymentsDurationSelect, defaultKey_paymentsDurationSelect } from '.'
 
 export default function Header() {
 	return (
@@ -23,7 +23,7 @@ export default function Header() {
 				<DurationSelect />
 			</div>
 			{/* Bottom Cards */}
-			<div className='grid grid-cols-1 gap-5 sm:grid-cols-2'>
+			<div className='mb-8 grid grid-cols-1 gap-5 sm:grid-cols-2'>
 				<InfoCard title='Online orders' content='231' />
 				<InfoCard title='Amount received' content='₹23,92,312.19' />
 			</div>
@@ -37,9 +37,7 @@ const DurationSelect = () => {
 	const params = useSearchParams()
 	return (
 		<Select
-			defaultValue={
-				params.get('duration') || ('last-month' as keyof typeof paymentsDurationSelect)
-			}
+			defaultValue={params.get('duration') || defaultKey_paymentsDurationSelect}
 			onValueChange={(v) => router.push(path + `?duration=${v}`)}>
 			<SelectTrigger className='flex h-auto max-w-[137px] items-center gap-2 border-app-gray-150 px-[14px] py-[7px] focus:ring-0'>
 				<SelectValue
@@ -64,7 +62,7 @@ const DurationSelect = () => {
 
 const InfoCard = (props: { title: string; content: string }) => {
 	return (
-		<article className='shadow-info-card rounded-lg bg-app-white p-5'>
+		<article className='rounded-lg bg-app-white p-5 shadow-info-card'>
 			<p className='mb-4 text-base text-app-blue-700'>{props.title}</p>
 			<h4 className='text-[32px] font-medium leading-[38px] text-app-gray-800'>
 				{props.content}

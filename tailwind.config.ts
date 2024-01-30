@@ -44,6 +44,7 @@ const config = {
 				'app-gray-800': '#1A181E',
 				'app-gray-700': '#4D4D4D',
 				'app-gray-500': '#808080',
+				'app-gray-400': '#999999',
 				'app-gray-150': '#D9D9D9',
 				'app-gray-100': '#E6E6E6',
 				'app-gray-50': '#F2F2F2',
