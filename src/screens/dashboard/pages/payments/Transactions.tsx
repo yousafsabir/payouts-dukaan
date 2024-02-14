@@ -113,14 +113,15 @@ const TransactionsTable = () => {
 						<InfoTip
 							heading={
 								<>
-									Transaction Fees
+									<span className='text-app-gray-800'>Transaction Fees</span>
 									<Info />
 								</>
 							}
 							content={
 								<p>
 									Transaction fees are charged as a percentage of
-									<br />the order amount according to your plan.
+									<br />
+									the order amount according to your plan.
 								</p>
 							}
 						/>
