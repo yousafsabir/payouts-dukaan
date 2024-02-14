@@ -5,12 +5,21 @@ import { useSearchParams } from 'next/navigation'
 
 import { Input } from '@/components'
 import { Button } from '@/components/ui/button'
-import { TwoOppositeArrows, Download as DownloadIcon } from '@/components/svg'
+import {
+	Table,
+	TableBody,
+	TableCell,
+	TableHead,
+	TableHeader,
+	TableRow,
+} from '@/components/ui/table'
+import { TwoOppositeArrows, Info, Download as DownloadIcon } from '@/components/svg'
 import {
 	paymentsDurationSelect,
 	defaultKey_paymentsDurationSelect,
 	type KeyofPaymentsDurationSelect,
 } from '.'
+import { InfoTip } from '@/components'
 
 function TransactionsSection() {
 	const params = useSearchParams()
@@ -31,7 +40,7 @@ function TransactionsSection() {
 
 			{/* Table */}
 			<main className='rounded-lg bg-app-white p-3 shadow-info-card'>
-				<header className='flex justify-between gap-3'>
+				<header className='mb-3 flex justify-between gap-3'>
 					<Input
 						classNames={{
 							wrapper:
@@ -46,6 +55,9 @@ function TransactionsSection() {
 						<Download />
 					</div>
 				</header>
+
+				{/* Table */}
+				<TransactionsTable />
 			</main>
 		</main>
 	)
@@ -77,5 +89,54 @@ const Download = () => {
 			className='inline-flex h-8 max-w-[248px] items-center gap-[6px] rounded border-app-gray-150 bg-app-white px-3 sm:h-10'>
 			<DownloadIcon />
 		</Button>
+	)
+}
+
+const transaction = {
+	id: '#281209',
+	date: '7 July, 2023',
+	amount: '₹1,278.23',
+	fees: '₹22',
+}
+
+const transactions = Array.from(Array(20), (_) => transaction)
+
+const TransactionsTable = () => {
+	return (
+		<Table className='overflow-hidden'>
+			<TableHeader className='rounded bg-app-gray-50'>
+				<TableRow className='rounded-lg border-b-0'>
+					<TableHead className='text-app-gray-700'>Order ID</TableHead>
+					<TableHead className='text-app-gray-700'>Order Date</TableHead>
+					<TableHead className='text-right text-app-gray-700'>Order Amount</TableHead>
+					<TableHead className='flex justify-end text-app-gray-700'>
+						<InfoTip
+							heading={
+								<>
+									Transaction Fees
+									<Info />
+								</>
+							}
+							content={
+								<p>
+									Transaction fees are charged as a percentage of
+									<br />the order amount according to your plan.
+								</p>
+							}
+						/>
+					</TableHead>
+				</TableRow>
+			</TableHeader>
+			<TableBody>
+				{transactions.map((trx) => (
+					<TableRow key={trx.id}>
+						<TableCell className='font-medium text-app-blue-500'>{trx.id}</TableCell>
+						<TableCell className='text-app-gray-800'>{trx.date}</TableCell>
+						<TableCell className='text-right text-app-gray-800'>{trx.amount}</TableCell>
+						<TableCell className='text-right text-app-gray-800'>{trx.fees}</TableCell>
+					</TableRow>
+				))}
+			</TableBody>
+		</Table>
 	)
 }

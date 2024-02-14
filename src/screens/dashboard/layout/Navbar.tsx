@@ -11,7 +11,7 @@ export default function DashboardNavbar() {
 	const path = rawPath.split('/').slice(-1)[0]
 
 	return (
-		<header className='fixed left-0 right-0 top-0 flex items-center justify-between gap-4 border-b border-app-gray-150 bg-app-white px-5 py-2 pl-8 sm:px-8 sm:py-3 lg:left-[224px]'>
+		<header className='fixed left-0 z-10 right-0 top-0 flex items-center justify-between gap-4 border-b border-app-gray-150 bg-app-white px-5 py-2 pl-8 sm:px-8 sm:py-3 lg:left-[224px]'>
 			{/* Left */}
 			<div className='flex items-center gap-2'>
 				<p className='text-[15px] font-medium capitalize leading-[22px] text-app-gray-800 lg:w-[80px] '>
