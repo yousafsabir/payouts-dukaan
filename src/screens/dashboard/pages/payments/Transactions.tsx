@@ -31,7 +31,7 @@ function TransactionsSection() {
 
 			{/* Table */}
 			<main className='rounded-lg bg-app-white p-3 shadow-info-card'>
-				<header className='flex justify-between'>
+				<header className='flex justify-between gap-3'>
 					<Input
 						classNames={{
 							wrapper:
@@ -41,7 +41,7 @@ function TransactionsSection() {
 						inputProps={{ placeholder: 'Search by order ID...' }}
 						iconFill='#999'
 					/>
-					<div className='flex items-center space-x-3'>
+					<div className='flex items-center space-x-[6px] sm:space-x-3'>
 						<Sort />
 						<Download />
 					</div>
@@ -63,7 +63,7 @@ const Sort = () => {
 	return (
 		<Button
 			variant={'outline'}
-			className='inline-flex h-10 max-w-[248px] items-center gap-[6px] rounded border-app-gray-150 bg-app-white px-3'>
+			className='inline-flex h-8 max-w-[248px] items-center gap-[6px] rounded border-app-gray-150 bg-app-white px-3 sm:h-10'>
 			<span className='text-base font-light text-app-gray-800'>Sort</span>
 			<TwoOppositeArrows />
 		</Button>
@@ -74,7 +74,7 @@ const Download = () => {
 	return (
 		<Button
 			variant={'outline'}
-			className='inline-flex h-10 max-w-[248px] items-center gap-[6px] rounded border-app-gray-150 bg-app-white px-3'>
+			className='inline-flex h-8 max-w-[248px] items-center gap-[6px] rounded border-app-gray-150 bg-app-white px-3 sm:h-10'>
 			<DownloadIcon />
 		</Button>
 	)

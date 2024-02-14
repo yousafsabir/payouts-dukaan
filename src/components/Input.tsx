@@ -17,7 +17,7 @@ export function Input(props: InputProps) {
 	return (
 		<div
 			className={cn(
-				'flex min-w-max max-w-[400px] flex-1 items-center gap-[6px] h-10 rounded-md bg-app-gray-50 px-3 py-[6px] sm:px-4 sm:py-[9px]',
+				'flex min-w-max max-w-[400px] flex-1 items-center gap-[6px] h-8 sm:h-10 rounded-md bg-app-gray-50 px-3 py-[6px] sm:px-4 sm:py-[9px]',
 				props.classNames?.wrapper,
 			)}>
 			<Search fill={props.iconFill} className={props.classNames?.icon} />
