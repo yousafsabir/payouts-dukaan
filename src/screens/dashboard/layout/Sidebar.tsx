@@ -108,7 +108,7 @@ export default function DashboardSidebar() {
 					{/* Open Sidebar */}
 					<div
 						className={cn(
-							'absolute -right-5 top-4 flex h-6 w-5 cursor-pointer items-center justify-center rounded-l-[-5px] rounded-r-md bg-app-blue-800 sm:top-5 lg:hidden ',
+							'absolute -right-5 top-3 flex h-6 w-5 cursor-pointer items-center justify-center rounded-l-[-5px] rounded-r-md bg-app-blue-800 sm:top-5 lg:hidden ',
 						)}
 						onClick={() => setSidebarOpen((prev) => !prev)}>
 						<div
