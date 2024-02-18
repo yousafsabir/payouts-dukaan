@@ -39,8 +39,8 @@ function TransactionsSection() {
 			</header>
 
 			{/* Table */}
-			<main className='rounded-lg bg-app-white p-3 shadow-info-card'>
-				<header className='mb-3 flex justify-between gap-3'>
+			<main className='flex flex-col rounded-lg bg-app-white p-3 shadow-info-card'>
+				<header className='mb-3 flex flex-1 justify-between gap-3'>
 					<Input
 						classNames={{
 							wrapper:
@@ -57,7 +57,9 @@ function TransactionsSection() {
 				</header>
 
 				{/* Table */}
+				{/* <main className='flex-1'> */}
 				<TransactionsTable />
+				{/* </main> */}
 			</main>
 		</main>
 	)
@@ -99,11 +101,11 @@ const transaction = {
 	fees: '₹22',
 }
 
-const transactions = Array.from(Array(20), (_) => transaction)
+const transactions = Array.from(Array(5), (_) => transaction)
 
 const TransactionsTable = () => {
 	return (
-		<Table className='overflow-hidden'>
+		<Table className='w-max'>
 			<TableHeader className='rounded bg-app-gray-50'>
 				<TableRow className='rounded-lg border-b-0'>
 					<TableHead className='text-app-gray-700'>Order ID</TableHead>
