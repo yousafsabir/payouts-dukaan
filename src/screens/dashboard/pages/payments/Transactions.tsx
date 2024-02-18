@@ -105,7 +105,7 @@ const transactions = Array.from(Array(5), (_) => transaction)
 
 const TransactionsTable = () => {
 	return (
-		<Table className='w-max'>
+		<Table>
 			<TableHeader className='rounded bg-app-gray-50'>
 				<TableRow className='rounded-lg border-b-0'>
 					<TableHead className='text-app-gray-700'>Order ID</TableHead>
