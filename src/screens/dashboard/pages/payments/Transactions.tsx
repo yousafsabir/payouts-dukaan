@@ -57,9 +57,7 @@ function TransactionsSection() {
 				</header>
 
 				{/* Table */}
-				{/* <main className='flex-1'> */}
 				<TransactionsTable />
-				{/* </main> */}
 			</main>
 		</main>
 	)
