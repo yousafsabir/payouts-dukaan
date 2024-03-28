@@ -1,8 +1,9 @@
 'use client'
 
 import { Suspense } from 'react'
-import { useSearchParams } from 'next/navigation'
+import { useQueryParams } from '@/lib/utils'
 
+import { cn } from '@/lib/utils'
 import { Input } from '@/components'
 import { Button } from '@/components/ui/button'
 import {
@@ -13,6 +14,15 @@ import {
 	TableHeader,
 	TableRow,
 } from '@/components/ui/table'
+import {
+	Pagination,
+	PaginationContent,
+	PaginationEllipsis,
+	PaginationItem,
+	PaginationLink,
+	PaginationNext,
+	PaginationPrevious,
+} from '@/components/ui/pagination'
 import { TwoOppositeArrows, Info, Download as DownloadIcon } from '@/components/svg'
 import {
 	paymentsDurationSelect,
@@ -22,7 +32,7 @@ import {
 import { InfoTip } from '@/components'
 
 function TransactionsSection() {
-	const params = useSearchParams()
+	const { params } = useQueryParams()
 
 	return (
 		<main>
@@ -102,42 +112,98 @@ const transaction = {
 const transactions = Array.from(Array(5), (_) => transaction)
 
 const TransactionsTable = () => {
+	const { params, updateParam } = useQueryParams()
 	return (
-		<Table>
-			<TableHeader className='rounded bg-app-gray-50'>
-				<TableRow className='rounded-lg border-b-0'>
-					<TableHead className='text-app-gray-700'>Order ID</TableHead>
-					<TableHead className='text-app-gray-700'>Order Date</TableHead>
-					<TableHead className='text-right text-app-gray-700'>Order Amount</TableHead>
-					<TableHead className='flex justify-end text-app-gray-700'>
-						<InfoTip
-							heading={
-								<>
-									<span className='text-app-gray-800'>Transaction Fees</span>
-									<Info />
-								</>
-							}
-							content={
-								<p>
-									Transaction fees are charged as a percentage of
-									<br />
-									the order amount according to your plan.
-								</p>
-							}
-						/>
-					</TableHead>
-				</TableRow>
-			</TableHeader>
-			<TableBody>
-				{transactions.map((trx) => (
-					<TableRow key={trx.id}>
-						<TableCell className='font-medium text-app-blue-500'>{trx.id}</TableCell>
-						<TableCell className='text-app-gray-800'>{trx.date}</TableCell>
-						<TableCell className='text-right text-app-gray-800'>{trx.amount}</TableCell>
-						<TableCell className='text-right text-app-gray-800'>{trx.fees}</TableCell>
+		<>
+			<Table className='mb-6'>
+				<TableHeader className='rounded bg-app-gray-50'>
+					<TableRow className='rounded-lg border-b-0'>
+						<TableHead className='text-app-gray-700'>Order ID</TableHead>
+						<TableHead className='text-app-gray-700'>Order Date</TableHead>
+						<TableHead className='text-right text-app-gray-700'>Order Amount</TableHead>
+						<TableHead className='flex justify-end text-app-gray-700'>
+							<InfoTip
+								heading={
+									<>
+										<span className='text-app-gray-800'>Transaction Fees</span>
+										<Info />
+									</>
+								}
+								content={
+									<p>
+										Transaction fees are charged as a percentage of
+										<br />
+										the order amount according to your plan.
+									</p>
+								}
+							/>
+						</TableHead>
 					</TableRow>
-				))}
-			</TableBody>
-		</Table>
+				</TableHeader>
+				<TableBody>
+					{transactions.map((trx, idx) => (
+						<TableRow key={`${trx.id}-${idx}`}>
+							<TableCell className='font-medium text-app-blue-500'>
+								{trx.id}
+							</TableCell>
+							<TableCell className='text-app-gray-800'>{trx.date}</TableCell>
+							<TableCell className='text-right text-app-gray-800'>
+								{trx.amount}
+							</TableCell>
+							<TableCell className='text-right text-app-gray-800'>
+								{trx.fees}
+							</TableCell>
+						</TableRow>
+					))}
+				</TableBody>
+			</Table>
+			<Pagination className='text-app-gray-700'>
+				<PaginationContent className='gap-0 space-x-1'>
+					<PaginationItem className='mr-6'>
+						<PaginationPrevious
+							href='#'
+							className='h-8 rounded border border-app-gray-150'
+						/>
+					</PaginationItem>
+					<PaginationItem
+						onClick={() => {
+							updateParam('page', '1')
+						}}>
+						<PaginationLink
+							className={cn('h-7 w-7 cursor-pointer rounded', {
+								'bg-app-blue-500 text-white hover:bg-app-blue-500 hover:text-white':
+									1 === parseInt(params.get('page') || '10'),
+							})}>
+							1
+						</PaginationLink>
+					</PaginationItem>
+					<PaginationItem>
+						<PaginationEllipsis className='items-end pb-[6px]' />
+					</PaginationItem>
+					{[10, 11, 12, 13, 14, 15, 16, 17, 18].map((val) => (
+						<PaginationItem
+							onClick={() => {
+								updateParam('page', val.toString())
+							}}
+							key={val}>
+							<PaginationLink
+								className={cn('h-7 w-7 cursor-pointer rounded', {
+									'bg-app-blue-500 text-white hover:bg-app-blue-500 hover:text-white':
+										val === parseInt(params.get('page') || '10'),
+								})}>
+								{val}
+							</PaginationLink>
+						</PaginationItem>
+					))}
+
+					<PaginationItem className='ml-6'>
+						<PaginationNext
+							href='#'
+							className='h-8 rounded border border-app-gray-150'
+						/>
+					</PaginationItem>
+				</PaginationContent>
+			</Pagination>
+		</>
 	)
 }
