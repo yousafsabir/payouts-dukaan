@@ -1,7 +1,7 @@
 'use client'
 
 import { Suspense } from 'react'
-import { useRouter, usePathname, useSearchParams } from 'next/navigation'
+import { useQueryParams } from '@/lib/utils'
 
 import {
 	Select,
@@ -35,13 +35,11 @@ export default function Header() {
 }
 
 const DurationSelect = () => {
-	const router = useRouter()
-	const path = usePathname()
-	const params = useSearchParams()
+	const { params, updateParam } = useQueryParams()
 	return (
 		<Select
 			defaultValue={params.get('duration') || defaultKey_paymentsDurationSelect}
-			onValueChange={(v) => router.push(path + `?duration=${v}`)}>
+			onValueChange={(v) => updateParam('duration', v)}>
 			<SelectTrigger className='flex h-auto max-w-[137px] items-center gap-2 border-app-gray-150 px-[14px] py-[7px] focus:ring-0'>
 				<SelectValue
 					placeholder='Select Duration'
