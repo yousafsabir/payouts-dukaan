@@ -115,7 +115,7 @@ const TransactionsTable = () => {
 	const { params, updateParam } = useQueryParams()
 	return (
 		<>
-			<Table className='mb-6'>
+			<Table>
 				<TableHeader className='rounded bg-app-gray-50'>
 					<TableRow className='rounded-lg border-b-0'>
 						<TableHead className='text-app-gray-700'>Order ID</TableHead>
@@ -157,9 +157,9 @@ const TransactionsTable = () => {
 					))}
 				</TableBody>
 			</Table>
-			<Pagination className='text-app-gray-700'>
+			<Pagination className='mt-6 text-app-gray-700'>
 				<PaginationContent className='gap-0 space-x-1'>
-					<PaginationItem className='mr-6'>
+					<PaginationItem className='mr-4 sm:mr-6'>
 						<PaginationPrevious
 							href='#'
 							className='h-8 rounded border border-app-gray-150'
@@ -190,13 +190,14 @@ const TransactionsTable = () => {
 								className={cn('h-7 w-7 cursor-pointer rounded', {
 									'bg-app-blue-500 text-white hover:bg-app-blue-500 hover:text-white':
 										val === parseInt(params.get('page') || '10'),
+									'hidden md:block': val >= 12,
 								})}>
 								{val}
 							</PaginationLink>
 						</PaginationItem>
 					))}
 
-					<PaginationItem className='ml-6'>
+					<PaginationItem className='ml-4 sm:ml-6'>
 						<PaginationNext
 							href='#'
 							className='h-8 rounded border border-app-gray-150'
